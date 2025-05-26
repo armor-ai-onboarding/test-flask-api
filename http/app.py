@@ -45,6 +45,10 @@ def hello():
 def hi():
     return redirect(url_for('hello'))
 
+@app.route('v2/hi')
+def hi():
+    return redirect(url_for('hello'))
+    
 @app.route('/hi2')
 def hi():
     return redirect(url_for('hello'))
