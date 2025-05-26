@@ -39,20 +39,6 @@ def hello():
     return response
 
 
-@app.route('/')
-@app.route('/hello/v2')
-def hello():
-    name = request.args.get('name')
-    if name is None:
-        name = request.cookies.get('name', 'Human')
-    response = '<h1>this is v2, Hello, %s!</h1>' % escape(name)  # escape name to avoid XSS
-    # return different response according to the user's authentication status
-    if 'logged_in' in session:
-        response += '[Authenticated]'
-    else:
-        response += '[Not Authenticated]'
-    return response
-
 
 
 # redirect
