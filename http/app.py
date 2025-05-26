@@ -49,10 +49,7 @@ def hi():
 def hi():
     return redirect(url_for('hello'))
     
-# use int URL converter
-@app.route('/goback/<int:year>')
-def go_back(year):
-    return 'Welcome to %d!' % (2018 - year)
+
 
 
 # use any URL converter
