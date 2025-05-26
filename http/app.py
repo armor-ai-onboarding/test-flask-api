@@ -41,7 +41,7 @@ def hello():
 
 
 # redirect
-@app.route('/hi')
+@app.route('v3/hi')
 def hi():
     return redirect(url_for('hello'))
 
