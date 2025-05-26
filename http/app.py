@@ -39,12 +39,6 @@ def hello():
     return response
 
 
-
-# redirect
-@app.route('/hi')
-def hi():
-    return redirect(url_for('hello'))
-
 @app.route('/hi2')
 def hi():
     return redirect(url_for('hello'))
