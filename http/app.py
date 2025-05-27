@@ -150,13 +150,6 @@ def admin():
     return 'Welcome to admin page.'
 
 
-# log out user
-@app.route('/logout')
-def logout():
-    if 'logged_in' in session:
-        session.pop('logged_in')
-    return redirect(url_for('hello'))
-
 
 # AJAX
 @app.route('/post')
