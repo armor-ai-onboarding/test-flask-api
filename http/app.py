@@ -69,6 +69,9 @@ def teapot(drink):
 def not_found():
     abort(404)
 
+@app.route('/400')
+def not_found():
+    abort(400)
 
 # return response with different formats
 @app.route('/note', defaults={'content_type': 'text'})
