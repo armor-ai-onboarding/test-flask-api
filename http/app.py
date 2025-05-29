@@ -142,13 +142,6 @@ def login():
     return redirect(url_for('hello'))
 
 
-# protect view
-@app.route('/admin')
-def admin():
-    if 'logged_in' not in session:
-        abort(403)
-    return 'Welcome to admin page.'
-
 
 # log out user
 @app.route('/logout')
