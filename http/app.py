@@ -64,10 +64,6 @@ def teapot(drink):
         return 'A drop of tea.'
 
 
-# 404
-@app.route('/404')
-def not_found():
-    abort(404)
 
 
 # return response with different formats
