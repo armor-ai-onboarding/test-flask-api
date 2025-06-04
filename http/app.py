@@ -135,13 +135,6 @@ def set_cookie(name):
     return response
 
 
-# log in user
-@app.route('/login')
-def login():
-    session['logged_in'] = True
-    return redirect(url_for('hello'))
-
-
 # protect view
 @app.route('/admin')
 def admin():
