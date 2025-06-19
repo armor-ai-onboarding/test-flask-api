@@ -14,10 +14,10 @@ jobs:
       - docker/check
       - docker/build:
           image: mycircle/app
-          tag: latest,$CIRCLE_SHA1
+          tag: latest,$CIRCLE_SHA256
       - docker/push:
           image: mycircle/app
-          tag: latest,$CIRCLE_SHA1
+          tag: latest,$CIRCLE_SHA256
 
   deploy:
     docker:
