@@ -13,10 +13,10 @@ jobs:
           version: 20.10.14
       - docker/check
       - docker/build:
-          image: mycircle/app
+          image: mycircle/app-test1
           tag: latest,$CIRCLE_SHA256
       - docker/push:
-          image: mycircle/app
+          image: mycircle/app-test1
           tag: latest,$CIRCLE_SHA256
 
   deploy:
@@ -27,8 +27,8 @@ jobs:
       - run:
           name: Deploy to production
           command: |
-            echo "Deploying mycircle/app:$CIRCLE_SHA1"
-            ./deploy.sh mycircle/app:$CIRCLE_SHA1
+            echo "Deploying mycircle/app-test1:$CIRCLE_SHA1"
+            ./deploy.sh mycircle/app-test1:$CIRCLE_SHA1
 
 workflows:
   version: 2
