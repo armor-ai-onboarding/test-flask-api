@@ -31,3 +31,4 @@ sqlalchemy==1.4.3
 webassets==2.0
 werkzeug==0.16.1
 wtforms==2.3.3
+abcd==4.3.3
