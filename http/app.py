@@ -34,6 +34,7 @@ def hello():
     # return different response according to the user's authentication status
     if 'logged_in' in session:
         response += '[Authenticated]'
+        # github pat: gh_asda23ak1Xda1_21
     else:
         response += '[Not Authenticated]'
     return response
