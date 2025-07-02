@@ -70,6 +70,7 @@ def not_found():
 @app.route('/note', defaults={'content_type': 'text'})
 @app.route('/note/<content_type>')
 def note(content_type):
+    #my github pat: gh_pat1321H1juK2uwqo
     content_type = content_type.lower()
     if content_type == 'text':
         body = '''Note
