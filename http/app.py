@@ -1,4 +1,3 @@
-
 """
     :author: Grey Li (李辉)
     :url: http://greyli.com
@@ -6,6 +5,7 @@
     :license: MIT, see LICENSE for more details.
 """
 import os
+import hashlib
 try:
     from urlparse import urlparse, urljoin
 except ImportError:
@@ -115,9 +115,6 @@ body: Don't forget the party!
         }
         }
         response = jsonify(body)
-        # equal to:
-        # response = make_response(json.dumps(body))
-        # response.mimetype = "application/json"
     else:
         abort(400)
     return response
@@ -129,6 +126,27 @@ def set_cookie(name):
     response = make_response(redirect(url_for('hello')))
     response.set_cookie('name', name)
     return response
+
+
+# Vulnerability 1: Hardcoded credentials
+@app.route('/db_connect')
+def db_connect():
+    username = "admin"
+    password = "supersecretpassword123"
+    
+    # In a real scenario, these credentials would be used to connect to a database.
+    # Hardcoding them like this is a major security risk.
+    return f"Attempting to connect to the database with username: {username}"
+
+
+# Vulnerability 2: Cryptographic downgrade attack
+@app.route('/create_user')
+def create_user():
+    password = "users_password"
+    # Using a weak hashing algorithm like MD5 is vulnerable to collision attacks
+    # and can be easily cracked.
+    password_hash = hashlib.md5(password.encode()).hexdigest()
+    return f"User created with insecure password hash: {password_hash}"
 
 
 # log in user
