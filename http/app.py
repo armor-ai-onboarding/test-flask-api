@@ -190,12 +190,6 @@ def foo():
            % url_for('do_something', next=request.full_path)
 
 
-@app.route('/bar')
-def bar():
-    return '<h1>Bar page</h1><a href="%s">Do something and redirect</a>' \
-           % url_for('do_something', next=request.full_path)
-
-
 @app.route('/do-something')
 def do_something():
     # do something here
