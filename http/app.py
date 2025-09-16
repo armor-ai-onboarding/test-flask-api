@@ -38,10 +38,6 @@ def hello():
         response += '[Not Authenticated]'
     return response
 
-
-@app.route('/hi2')
-def hi():
-    return redirect(url_for('hello'))
     
 
 
