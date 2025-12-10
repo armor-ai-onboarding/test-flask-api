@@ -196,12 +196,6 @@ def bar():
            % url_for('do_something', next=request.full_path)
 
 
-@app.route('/do-something')
-def do_something():
-    # do something here
-    return redirect_back()
-
-
 def is_safe_url(target):
     ref_url = urlparse(request.host_url)
     test_url = urlparse(urljoin(request.host_url, target))
