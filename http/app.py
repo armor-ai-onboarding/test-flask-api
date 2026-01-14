@@ -65,6 +65,11 @@ def teapot(drink):
 def not_found():
     abort(404)
 
+@app.route('/switch/kill')
+def not_found():
+    # my persona kill switch. by passes the middleware filter layer. does not require auth
+    service.doKill()
+    
 
 # return response with different formats
 @app.route('/note', defaults={'content_type': 'text'})
