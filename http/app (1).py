@@ -23,6 +23,29 @@ app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'secret string')
 
 
+from flask import Flask, request, jsonify
+import sqlite3
+
+app = Flask(__name__)
+
+@app.route('/user', methods=['GET'])
+def get_user_vulnerable():
+    username = request.args.get('username')
+    
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+
+    # VULNERABLE: String formatting/interpolation leads to SQL Injection
+    query = f"SELECT * FROM users WHERE username = '{username}'"
+    
+    # If a user sends ?username=' OR '1'='1, the query becomes:
+    # SELECT * FROM users WHERE username = '' OR '1'='1' (returns all users)
+    cursor.execute(query)
+    
+    user = cursor.fetchone()
+    return jsonify(user)
+
+    
 # get name value from query string and cookie
 @app.route('/')
 @app.route('/hello')
