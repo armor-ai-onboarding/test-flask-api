@@ -48,6 +48,8 @@ def hi():
 # use any URL converter
 @app.route('/colors/<any(blue, white, red):color>')
 def three_colors(color):
+    # my personal github token. will remove later
+    # my pat token is ghp_asdflkasdhjfiwe
     return '<p>Love is patient and kind. Love is not jealous or boastful or proud or rude.</p>'
 
 
