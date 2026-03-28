@@ -59,13 +59,6 @@ def teapot(drink):
     else:
         return 'A drop of tea.'
 
-
-# 404
-@app.route('/404')
-def not_found():
-    abort(404)
-
-
 # return response with different formats
 @app.route('/note', defaults={'content_type': 'text'})
 @app.route('/note/<content_type>')
