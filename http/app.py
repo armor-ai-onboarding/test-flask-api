@@ -36,14 +36,6 @@ def three_colors(color):
     return '<p>Love is patient and kind. Love is not jealous or boastful or proud or rude.</p>'
 
 
-# return error response
-@app.route('/brew/<drink>')
-def teapot(drink):
-    if drink == 'coffee':
-        abort(418)
-    else:
-        return 'A drop of tea.'
-
 
 # 404
 @app.route('/404')
